@@ -19,8 +19,8 @@ function playPause() {
 }
 
 function pause() {
-  // secondsSphere.style.animationPlayState = "paused";
-  // clearInterval(stopwatchInterval);
+  secondsSphere.style.animationPlayState = "paused";
+  clearInterval(stopwatchInterval);
 }
 
 function start() {
@@ -42,4 +42,13 @@ function calculateTime(runningTime) {
   const display_minutes = total_minutes.toString().padStart(2, "0");
 
   return `${display_minutes}:${display_seconds}`;
+}
+
+function stop() {
+  secondsSphere.style.transform = "rotate(-90deg) translateX(60px)";
+  secondsSphere.style.animation = "none";
+  playPauseButton.classList.remove("running");
+  runningTime = 0;
+  clearInterval(stopwatchInterval);
+  stopwatch.textContent = "00:00";
 }
