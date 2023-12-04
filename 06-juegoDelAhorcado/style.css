@@ -5,3 +5,10 @@
   list-style: none;
   text-decoration: none;
 }
+
+.hidden {
+  color: transparent;
+}
+
+.letter {
+}
