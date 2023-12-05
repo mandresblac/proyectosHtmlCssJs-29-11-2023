@@ -107,3 +107,9 @@ function addBodyPart(bodyPart) {
   ctx.fillStyle = "#fff";
   ctx.fillRect(...bodyPart);
 }
+
+function addLetter(letter) {
+  const letterElement = document.createElement("span");
+  letterElement.innerHTML = letter.toUpperCase();
+  usedLettersElement.appendChild(letterElement);
+}
