@@ -80,3 +80,30 @@ function letterInput(letter) {
   addLetter(letter);
   usedLetters.push(letter);
 }
+
+function correctLetter(letter) {
+  const { children } = wordContainer;
+  for (let i = 0; i < children.length; i++) {
+    if (children[i].innerHTML === letter) {
+      children[i].classList.toggle("hidden");
+      hits++;
+    }
+  }
+  if (hits === selectedWord.length) endGame();
+}
+
+function endGame() {
+  document.removeEventListener("keydown", letterEvent);
+  startButton.style.display = "block";
+}
+
+function wrongLetter() {
+  addBodyPart(bodyParts[mistakes]);
+  mistakes++;
+  if (mistakes === bodyParts.length) endGame();
+}
+
+function addBodyPart(bodyPart) {
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(...bodyPart);
+}
